@@ -114,7 +114,7 @@ int gameEngine::ConstructConsole(int width, int height, int fontw, int fonth, wc
 	if (sizeX > csbi.dwMaximumWindowSize.X)
 		return Error(L"Screen Width / Font Width Too Big", 8);
 
-	rectWindow = { 0,0,(short)sizeX - 1, (short)sizeY - 1 };
+	rectWindow = { 0,0,(short)(sizeX - 1), (short)(sizeY - 1) };
 	if (!SetConsoleWindowInfo(consoleOut, TRUE, &rectWindow))
 		return Error(L"SetConsoleWindowInfo", 9);
 
