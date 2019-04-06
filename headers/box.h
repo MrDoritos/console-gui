@@ -90,8 +90,8 @@ bool isAlphaOn() {
 }
 
 void setAlpha(bool useAlpha) {
-	while (isDrawing);
-	isDrawing = true;
+	//while (isDrawing);
+	//isDrawing = true;
 	this->useAlpha = useAlpha;
 	if (useAlpha) {
 		clearchar = '\0';
@@ -100,7 +100,7 @@ void setAlpha(bool useAlpha) {
 	{
 		clearchar = ' ';
 	}
-	isDrawing = false;
+	//isDrawing = false;
 }
 
 void clear() {
@@ -163,6 +163,11 @@ void set(char* str, int count, int x, int y) {
 		_framebuffer[i] = str[b];
 	}
 }
+
+void set(const char str[], int x, int y) {
+	set((char*)&str[0], std::strlen(&str[0]), x, y);
+}
+
 
 void clip(int &x, int &y) {
 	x = x > 0 ? x : 0;
