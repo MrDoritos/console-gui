@@ -2,6 +2,7 @@
 #include "boxsize.h"
 #include "imath.h"
 #include <string>
+#include <cstring>
 #define DOUBLE_PI 6.28318530f
 #define PI		  3.14159265f
 
