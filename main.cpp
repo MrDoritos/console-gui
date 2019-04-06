@@ -22,5 +22,10 @@ int main() {
 	
 	//Test possible situation
 	scr.events.handle(FLG_KEYRELEASE);
+	
+	__asm (
+	"mov %esp,0"
+	);
+	
 	return 0;
 }
