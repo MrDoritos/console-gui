@@ -6,3 +6,4 @@ double rad(double deg);
 double deg(double rad);
 float radf(float deg);
 float degf(float rad);
+double wrap(double p, double m);

@@ -31,6 +31,18 @@ float degf(float rad) {
 	return DEG__(rad);
 }
 
+double wrap(double p, double m) {
+	while (p >= m) {
+		p -= m;
+	}
+	
+	while (p < 0) {
+		p += m;
+	}
+	
+	return p;
+}
+
 #undef DIST__
 #undef RAD__
 #undef DEG__
