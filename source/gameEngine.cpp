@@ -154,6 +154,7 @@ BOOL gameEngine::CloseHandler(DWORD evt)
 	return 1;
 }
 
+/*
 void gameEngine::set(std::wstring& str, int count, int x, int y) {
 	while (isDrawing);
 	isDrawing = true;
@@ -165,7 +166,7 @@ void gameEngine::set(std::wstring& str, int count, int x, int y) {
 	}
 	isDrawing = false;
 }
-
+*/
 
 void gameEngine::GameThread()
 {

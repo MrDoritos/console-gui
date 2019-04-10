@@ -6,12 +6,18 @@
 
 
 struct keyState {
+	public:
+	keyState() {
+		bPressed = false;
+		bReleased = false;
+		bHeld = false;
+	}
 	bool bPressed;
 	bool bReleased;
 	bool bHeld;
 };
 
-class gameEngine : protected box
+class gameEngine : public box
 {
 public:
 	gameEngine(box* gamecamera, HANDLE originalConsoleBuffer, CHAR_INFO* framebuffer, bool spawnDrawingThread);
@@ -28,7 +34,7 @@ public:
 	COORD screenSize;
 	int ConstructConsole(int width, int height, int fontw, int fonth, wchar_t* font);
 	void Close();
-	void set(std::wstring & str, int count, int x, int y);
+	//void set(std::wstring & str, int count, int x, int y);
 	bool closed;
 
 protected:
@@ -74,10 +80,10 @@ protected:
 	int mousePosY;
 	bool consoleFocused;
 
-	short keyOldState[256];
-	short keyNewState[256];
-	bool mouseOldState[5];
-	bool mouseNewState[5];
+	short keyOldState[256] = {0};
+	short keyNewState[256] = {0};
+	bool mouseOldState[5] = {0};
+	bool mouseNewState[5] = {0};
 	keyState keys[256];
 	keyState mouse[5];
 

@@ -5,13 +5,19 @@ set "sources=%sourcePath%gameEngine.cpp %sourcePath%imath.cpp %sourcePath%lodepn
 set "includes=-I%headerPath%"
 set "arg=-DGCC -o a.exe -std=c++11 -w"
 
+set "ret=0"
+
 echo Split box.h into box.h and box.cpp
 echo Split boxsize.h into boxsize.h and boxsize.cpp
 echo Split image.h into image.h and image.cpp
 
+g++ %sources% %includes% %arg% %*
+set "ret=%errorlevel%"
+
+
 @echo on
-%userprofile%\Downloads\pocketcpp-0.7\pocketcpp\MinGW\bin\g++ %includes% %sources% %arg% %* main.cpp
-if "%errorlevel%" NEQ "0" (
+if "%ret%" NEQ "0" (
 pause
 )
 @echo off
+Exit /b %ret%

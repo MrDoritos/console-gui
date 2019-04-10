@@ -184,18 +184,32 @@ void clip(float &x, float &y) {
 }
 
 void set(std::string& str, int count, int x, int y) {
-	while (isDrawing);
-	isDrawing = true;
 	int length = str.length();
 	int offset = get(x,y);
 	int max = characters();
 	for (int i = offset, b = 0; b < length && b < count && i < offset + count && i < offset + length && i < max; i++, b++){
 		_framebuffer[i] = str[b];
 	}
-	isDrawing = false;	
+}
+void set(char b, int x, int y) {
+	if (get(x, y) < characters())
+		_framebuffer[get(x, y)] = b;
+}
+void drawCircle(double x, double y, double radius, char border = '#') {
+	double step = 1 / (radius * D_PI);
+	int xF, yF;
+	for (double theta = 0.0d; theta < DOUBLE_PI; theta += step) {
+		xF = (x + radius * cos(theta));
+		yF = (y - radius * sin(theta));
+		if (inBounds(xF, yF)) {
+			_framebuffer[get(xF, yF)] = border;
+		}
+	}
 }
 //Draws a circle with the maximum possible diameter
 void drawCircle(char border = '#') {
+	drawCircle(floorf(getscaleX(0.5f)), floorf(getscaleY(0.5f)), getMinScale(0.5f), border);
+	/*
 	float centerX = floorf(getscaleX(0.5f)), centerY = floorf(getscaleY(0.5f));
 	float radius = centerX > centerY ? centerY : centerX;
 	float diameter = radius * 2;
@@ -215,6 +229,7 @@ void drawCircle(char border = '#') {
 			_framebuffer[get(x, y)] = border;
 		}
 	}
+	*/
 }
 bool inBounds(int x, int y) {
 	return ((x >= 0&& x < offsetX + sizeX) && (y >= 0 && y < offsetY + sizeY));
