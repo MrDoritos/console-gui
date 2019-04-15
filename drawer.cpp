@@ -17,8 +17,8 @@ class test3d : gameEngine {
 	{
 		consoleOut = GetStdHandle(STD_OUTPUT_HANDLE);
 		consoleIn = GetStdHandle(STD_INPUT_HANDLE);
-		//ConstructConsole(camera->sizeX, camera->sizeY, 8,8, (wchar_t*)L"Raster");
-		ConstructConsole(camera->sizeX, camera->sizeY, 4, 6, (wchar_t*)L"Lucida Console");
+		ConstructConsole(camera->sizeX, camera->sizeY, 8,8, (wchar_t*)L"Raster");
+		//ConstructConsole(camera->sizeX, camera->sizeY, 4, 6, (wchar_t*)L"Lucida Console");
 		SetTargetTicksPerSecond(60);
 		doClear = false;
 	}
